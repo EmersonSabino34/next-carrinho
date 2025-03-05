@@ -5,21 +5,37 @@ import Image from "next/image";
 import "./carrinho.css"
 import Right from "../../../public/arrowRight.png";
 import Mouse from "../../../public/mouse.webp";
+import { IoTrashOutline } from "react-icons/io5";
+import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+import { MdArrowForwardIos } from "react-icons/md";
 
 export default function Carrinho() {
   const [number, setNumber] = useState(0)
+  const [number1, setNumber1] = useState(0)
+  const [number2, setNumber2] = useState(0)
+  const [number3, setNumber3] = useState(0)
+  const [number4, setNumber4] = useState(0)
 
-  function somar(event: any){
-    event.preventDefault()
-    setNumber(number + 1)
-  }
 
-  function subtrair(event: any){
-    event.preventDefault()
+  // produto 
+  const somar = () => setNumber(number + 1) 
+  const subtrair = () => setNumber(number - 1) 
+  
+  // produto 1
+  const somar1 = () => setNumber1(number1 + 1)
+  const subtrair1 = () => setNumber1(number1 -1)
+
+   // produto 2
+   const subtrair2 = () => setNumber2(number2 -1)
+   const somar2 = () => setNumber2(number2 + 1)
+
+   //produto 3
+   const somar3 = () => setNumber3(number3 + 1)
+   const subtrair3 = () => setNumber3(number3 -1)
+
+   const somar4 = () => setNumber3(number4 + 1)
+   const subtrair4 = () => setNumber3(number4 -1)
    
-    setNumber(number - 1)
-  }
-
   return (
     <div className="items-product-list">
       
@@ -31,9 +47,7 @@ export default function Carrinho() {
         <div className="">
          {/* Item 1 -- Pronto  */}
          <div className="item-product w-[400px] md:w-[400px] flex items-center h-auto gap-2 px-4 mb-4">
-          
           <div className="flex items-center gap-5">
-            
             <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
               <Image src={Mouse} alt="a" className="w-20" />
             </div>
@@ -47,29 +61,36 @@ export default function Carrinho() {
               </div>
 
               <div className="qtd gap-2 flex items-center mt-2.5">
-                <button onClick={subtrair} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src="/arrowLeft.png" width={30} height={30} alt="menos" className="w-2" />
+
+                {/* Botão subtrair  */}
+                <button onClick={subtrair} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] 
+                rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowLeftCircle className="w-10" size={30} />
+                </button>
+                
+                {/* visor  */}
+                <span className="text-2xl">{number}</span>
+
+                {/* Botão somar  */}
+                <button onClick={somar} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] 
+                rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowRightCircle className="w-10" size={30} />
                 </button>
 
-                <span>{number}</span>
-
-                <button onClick={somar} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src={Right} alt="mais" className="w-2" />
-                </button>
               </div>
             </div>
           </div>
 
-          <button className="image-trash">
-            <Image src="/trash.png" width={30} height={30} alt="Lixeira" className="w-4" />
+          <button className="image-trash flex items-center justify-center ">
+            <IoTrashOutline size={50} className="w-7 hover:scale-125 hover:text-red-500" />
           </button>
         </div>
 
         {/* Item 2 -- Fazer  */}
-        <div className="item-product w-[400px] md:w-[500px] flex items-center h-22 gap-2 px-4 mb-4">
+        <div className="item-product w-[400px] md:w-[400px] flex items-center h-22 gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
-            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg">
-              <Image src={Mouse} alt="a" className="w-20" />
+            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center  justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
+              <Image src="/notbook1.svg" width={30} height={0} alt="" className="w-20" />
             </div>
 
             <div className="productInfo flex flex-col">
@@ -82,30 +103,35 @@ export default function Carrinho() {
 
               <div className="qtd gap-2 flex items-center mt-2.5">
                 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src="/arrowLeft.png" alt="menos" width={40} height={30} className="w-2" />
+                {/* subrair  */}
+                <button onClick={subtrair} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D]
+                rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
-                <span>1</span>
+                {/* visor  */}
+                <span>{number1}</span>
 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src={Right} alt="mais" className="w-2" />
+                {/* somar  */}
+                <button onClick={somar} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm 
+                hover:scale-125 hover:text-green-600">
+                <FiArrowRightCircle className="w-10" size={30} />
                 </button>
 
               </div>
             </div>
           </div>
 
-          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10">
-            <Image src="/trash.png" alt="Lixeira" width={30} height={30} className="w-4" />
+          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10 flex items-center justify-center ">
+          <IoTrashOutline size={50} className="w-7 hover:scale-125 hover:text-red-500" />
           </button>
         </div>
 
         {/* Item 3 -- Fazer  */}
         <div className="item-product w-[400px] md:w-[500px] flex items-center h-22 gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
-            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg">
-              <Image src={Mouse} alt="a" className="w-20" />
+            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
+              <Image src="/notbook2.svg" width={30} height={0} alt="" className="w-20" />
             </div>
 
             <div className="productInfo flex flex-col">
@@ -118,30 +144,30 @@ export default function Carrinho() {
 
               <div className="qtd gap-2 flex items-center mt-2.5">
                 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src="/arrowLeft.png" alt="menos" width={40} height={30} className="w-2" />
+                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
                 <span>1</span>
 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src={Right} alt="mais" className="w-2" />
+                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowRightCircle className="w-10" size={30} />
                 </button>
 
               </div>
             </div>
           </div>
 
-          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10">
-            <Image src="/trash.png" alt="Lixeira" width={30} height={30} className="w-4" />
+          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10 flex items-center justify-center ">
+          <IoTrashOutline size={50} className="w-7 hover:scale-125 hover:text-red-500" />
           </button>
         </div>
 
         {/* Item 4 -- Fazer  */}
         <div className="item-product w-[400px] md:w-[500px] flex items-center h-22 gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
-            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg">
-              <Image src={Mouse} alt="a" className="w-20" />
+            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
+              <Image src="/placa.svg" width={30} height={0} alt="a" className="w-20" />
             </div>
 
             <div className="productInfo flex flex-col">
@@ -154,30 +180,30 @@ export default function Carrinho() {
 
               <div className="qtd gap-2 flex items-center mt-2.5">
                 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src="/arrowLeft.png" alt="menos" width={40} height={30} className="w-2" />
+                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
                 <span>1</span>
 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src={Right} alt="mais" className="w-2" />
+                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowRightCircle className="w-10" size={30} />
                 </button>
 
               </div>
             </div>
           </div>
 
-          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10">
-            <Image src="/trash.png" alt="Lixeira" width={30} height={30} className="w-4" />
+          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10 flex items-center justify-center ">
+          <IoTrashOutline size={50} className="w-7 hover:scale-125 hover:text-red-500" />
           </button>
         </div>
 
         {/* Item 5 -- Fazer  */}
         <div className="item-product w-[400px] md:w-[500px] flex items-center h-22 gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
-            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg">
-              <Image src={Mouse} alt="a" className="w-20" />
+            <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
+              <Image src="/ipad.svg" width={30} height={0} alt="" className="w-20" />
             </div>
 
             <div className="productInfo flex flex-col">
@@ -190,27 +216,25 @@ export default function Carrinho() {
 
               <div className="qtd gap-2 flex items-center mt-2.5">
                 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src="/arrowLeft.png" alt="menos" width={40} height={30} className="w-2" />
+                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
                 <span>1</span>
 
-                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm">
-                  <Image src={Right} alt="mais" className="w-2" />
+                <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
+                <FiArrowRightCircle className="w-10" size={30} />
                 </button>
 
               </div>
             </div>
           </div>
 
-          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10">
-            <Image src="/trash.png" alt="Lixeira" width={30} height={30} className="w-4" />
+          <button className="cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-sm ml-10 flex items-center justify-center">
+          <IoTrashOutline size={50} className="w-7 hover:scale-125 hover:text-red-500" />
           </button>
         </div>
-
-     </div>
-
+        </div>
       </div>
 
       <div className="w-screen h-[1px] bg-white mt-2 mb-2"></div>

@@ -5,5 +5,5 @@
   }
 
 .image-trash{
-    @apply cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-md ml-10 hover:cursor-pointer hover:bg-red-500 hover:rotate-180 duration-300 hover:scale-110
+    @apply cursor-pointer border-3 h-10 px-3 py-1 border-[#1D1D1D] rounded-md ml-10 hover:cursor-pointer hover:rotate-12 duration-300 hover:scale-110
 }
