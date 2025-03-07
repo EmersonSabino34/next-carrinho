@@ -10,16 +10,13 @@ import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import { MdArrowForwardIos } from "react-icons/md";
 
 export default function Carrinho() {
-  const [number, setNumber] = useState(0)
+  
   const [number1, setNumber1] = useState(0)
   const [number2, setNumber2] = useState(0)
   const [number3, setNumber3] = useState(0)
   const [number4, setNumber4] = useState(0)
+  const [number5, setNumber5] = useState(0)
 
-
-  // produto 
-  const somar = () => setNumber(number + 1) 
-  const subtrair = () => setNumber(number - 1) 
   
   // produto 1
   const somar1 = () => setNumber1(number1 + 1)
@@ -33,8 +30,13 @@ export default function Carrinho() {
    const somar3 = () => setNumber3(number3 + 1)
    const subtrair3 = () => setNumber3(number3 -1)
 
-   const somar4 = () => setNumber3(number4 + 1)
-   const subtrair4 = () => setNumber3(number4 -1)
+   //produto 4
+   const somar4 = () => setNumber4(number4 + 1)
+   const subtrair4 = () => setNumber4(number4 -1)
+
+   //produto 5
+   const somar5 = () => setNumber5(number5 + 1)
+   const subtrair5 = () => setNumber5(number5 -1)
    
   return (
     <div className="items-product-list">
@@ -44,7 +46,7 @@ export default function Carrinho() {
         <div className="bg-zinc-600"></div>
 
         {/* Right Produtos  */}
-        <div className="">
+        <div className="lista-right">
          {/* Item 1 -- Pronto  */}
          <div className="item-product w-[400px] md:w-[400px] flex items-center h-auto gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
@@ -63,16 +65,16 @@ export default function Carrinho() {
               <div className="qtd gap-2 flex items-center mt-2.5">
 
                 {/* Botão subtrair  */}
-                <button onClick={subtrair} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] 
+                <button onClick={subtrair1} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] 
                 rounded-sm hover:scale-125 hover:text-green-600">
                 <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
                 
                 {/* visor  */}
-                <span className="text-2xl">{number}</span>
+                <span className="text-2xl">{number1}</span>
 
                 {/* Botão somar  */}
-                <button onClick={somar} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] 
+                <button onClick={somar1} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] 
                 rounded-sm hover:scale-125 hover:text-green-600">
                 <FiArrowRightCircle className="w-10" size={30} />
                 </button>
@@ -104,16 +106,16 @@ export default function Carrinho() {
               <div className="qtd gap-2 flex items-center mt-2.5">
                 
                 {/* subrair  */}
-                <button onClick={subtrair} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D]
+                <button onClick={subtrair2} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D]
                 rounded-sm hover:scale-125 hover:text-green-600">
                 <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
                 {/* visor  */}
-                <span>{number1}</span>
+                <span className="text-2xl">{number2}</span>
 
                 {/* somar  */}
-                <button onClick={somar} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm 
+                <button onClick={somar2} className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm 
                 hover:scale-125 hover:text-green-600">
                 <FiArrowRightCircle className="w-10" size={30} />
                 </button>
@@ -128,7 +130,7 @@ export default function Carrinho() {
         </div>
 
         {/* Item 3 -- Fazer  */}
-        <div className="item-product w-[400px] md:w-[500px] flex items-center h-22 gap-2 px-4 mb-4">
+        <div className="item-product w-[400px] md:w-[400px] flex items-center h-22 gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
             <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
               <Image src="/notbook2.svg" width={30} height={0} alt="" className="w-20" />
@@ -148,8 +150,7 @@ export default function Carrinho() {
                 <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
-                <span>1</span>
-
+                <span className="text-2xl">{number3}</span>
                 <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
                 <FiArrowRightCircle className="w-10" size={30} />
                 </button>
@@ -164,7 +165,7 @@ export default function Carrinho() {
         </div>
 
         {/* Item 4 -- Fazer  */}
-        <div className="item-product w-[400px] md:w-[500px] flex items-center h-22 gap-2 px-4 mb-4">
+        <div className="item-product w-[400px] md:w-[400px] flex items-center h-22 gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
             <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
               <Image src="/placa.svg" width={30} height={0} alt="a" className="w-20" />
@@ -184,7 +185,7 @@ export default function Carrinho() {
                 <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
-                <span>1</span>
+                <span className="text-2xl">{number4}</span>
 
                 <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
                 <FiArrowRightCircle className="w-10" size={30} />
@@ -200,7 +201,7 @@ export default function Carrinho() {
         </div>
 
         {/* Item 5 -- Fazer  */}
-        <div className="item-product w-[400px] md:w-[500px] flex items-center h-22 gap-2 px-4 mb-4">
+        <div className="item-product w-[400px] md:w-[400px] flex items-center h-22 gap-2 px-4 mb-4">
           <div className="flex items-center gap-5">
             <div className="imgContent bg-[#1D1D1D] h-22 flex items-center justify-center rounded-lg hover:cursor-pointer hover:bg-zinc-300 duration-300 hover:scale-110">
               <Image src="/ipad.svg" width={30} height={0} alt="" className="w-20" />
@@ -220,7 +221,7 @@ export default function Carrinho() {
                 <FiArrowLeftCircle className="w-10" size={30} />
                 </button>
 
-                <span>1</span>
+                <span className="text-2xl">{number5}</span>
 
                 <button className="cursor-pointer border-3 px-2 py-1.5 border-[#1D1D1D] rounded-sm hover:scale-125 hover:text-green-600">
                 <FiArrowRightCircle className="w-10" size={30} />
@@ -235,12 +236,13 @@ export default function Carrinho() {
           </button>
         </div>
         </div>
+
       </div>
 
       <div className="w-screen h-[1px] bg-white mt-2 mb-2"></div>
 
       {/* Calculo  */}
-      <div className="results">
+      <div className="">
         <div className="sub w-screen px-5 flex justify-between">
           <span>Subtotal:</span>
           <span>R$ 1.601,57</span>

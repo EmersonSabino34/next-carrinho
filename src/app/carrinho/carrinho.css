@@ -1,7 +1,15 @@
 @import "tailwindcss";
 
 .items-product-list{
-    @apply bg-black text-white w-screen h-screen flex flex-col pt-5 sm:px-2
+    @apply bg-black text-white w-screen flex flex-col pt-5 sm:px-2 
+  }
+
+.lista-right{
+  @apply h-[100vh]
+}
+
+  .item-product{
+    @apply  p-2 h-44 bg-[#1D1D1D] rounded-md
   }
 
 .image-trash{
